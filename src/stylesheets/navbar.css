@@ -10,7 +10,6 @@
   .navBarBrand {
     font-family: BasisGrotesque,Avenir,Helvetica Neue,Helvetica,sans-serif in !important;
     font-weight: 1500 !important;
-    color: #1F9F1F !important;
   }
 
   .navContainer {
@@ -20,5 +19,9 @@
   .avatar {
     height: 30px !important;
     width: 30px !important;
+  }
+
+  .brandNameLast {
+    color: #1F9F1F;
   }
 

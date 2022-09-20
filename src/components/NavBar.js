@@ -19,7 +19,9 @@ export default function NavBar() {
             height="30"
             className="d-inline-block align-top"
           /> 
-          &nbsp;  NRDCare
+          &nbsp;  
+          <span className="brandNameFirst">NRD</span>
+          <span className="brandNameLast">Care</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
