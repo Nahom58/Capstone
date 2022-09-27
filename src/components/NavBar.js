@@ -9,7 +9,7 @@ import { Avatar } from '@material-ui/core';
 
 export default function NavBar() {
   return (
-    <Navbar expand="sm" bg="light" variant="light">
+    <Navbar expand="sm" bg="white" variant="light">
       <Container className="navContainer">
         <Navbar.Brand className="navBarBrand" href="#home">
           <img
@@ -24,7 +24,7 @@ export default function NavBar() {
           <span className="brandNameLast">Care</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse className="collapseNavBar" id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">About Us</Nav.Link>

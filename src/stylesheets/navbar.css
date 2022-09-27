@@ -1,8 +1,8 @@
 
 .navbar {
     font-family: BasisGrotesque,Avenir,Helvetica Neue,Helvetica,sans-serif;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 750;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
   }
@@ -10,6 +10,7 @@
   .navBarBrand {
     font-family: BasisGrotesque,Avenir,Helvetica Neue,Helvetica,sans-serif in !important;
     font-weight: 1500 !important;
+    font-size: x-large !important;
   }
 
   .navContainer {
@@ -23,5 +24,10 @@
 
   .brandNameLast {
     color: #1F9F1F;
+  }
+
+  .collapseNavBar {
+    flex: space-between !important;
+    padding-right: 5%;
   }
 
