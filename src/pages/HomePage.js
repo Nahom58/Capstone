@@ -28,7 +28,8 @@ export default function HomePage() {
             <span className="homePageMessageColored"> Everyone</span>
             </div>
             <div className="homePageDescription">
-            <span className='homePageDescriptionBrandName'>NRDCare</span> is a web platform that mainly operates in Addis Ababa, Ethiopia. We connect 
+            <span className='homePageDescriptionBrandNameFirst'>NRD</span>
+            <span className="homePageDescriptionBrandNameLast">Care</span> is a web platform that mainly operates in Addis Ababa, Ethiopia. We connect 
             individuals with medical practitioners from various fields in the medical industry
             to ease access to healthcare.
             </div>
