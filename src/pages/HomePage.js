@@ -18,7 +18,7 @@ export default function HomePage() {
           <NavBar />
         </Row>
         <Container >
-          <Row>
+          <Row className="homePageBody">
             <Col className="homePageBodyLeft" sm={9} style={{backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZk4Xq7g3UbM1JwnPTxpChs46AfQGo_MtSw&usqp=CAU")`, backgroundSize: '410px', backgroundRepeat:"no-repeat", backgroundPosition: "right bottom" }} >
             <div className="homePageMessage">
             Medical Care Now

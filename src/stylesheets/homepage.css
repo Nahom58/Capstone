@@ -34,9 +34,12 @@
     color: #1F9F1F;
 }
 
+.homePageBody {
+    margin-top: 2% !important;
+}
+
 .homePageBodyLeft {
     margin-top: 1% !important;
-    /* background-image: "https://t4.ftcdn.net/jpg/02/41/67/49/360_F_241674902_1i8NSWE483IGlRkPPvRWWZuLTFBnqIWh.jpg" !important; */
 }
 
 .d-flex {
