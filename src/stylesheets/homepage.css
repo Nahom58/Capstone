@@ -22,7 +22,7 @@
     font-style:italic;
     margin-top: 2%;
     margin-bottom: 2%;
-    width: 80%;
+    width: 63%;
 }
 
 .homePageDescriptionBrandNameFirst {
@@ -34,12 +34,14 @@
     color: #1F9F1F;
 }
 
-.homePageText {
-    margin-top: 3% !important;
+.homePageBodyLeft {
+    margin-top: 1% !important;
+    /* background-image: "https://t4.ftcdn.net/jpg/02/41/67/49/360_F_241674902_1i8NSWE483IGlRkPPvRWWZuLTFBnqIWh.jpg" !important; */
 }
 
 .d-flex {
-    margin-top: 3%;
+    padding-top: 4%;
+    padding-bottom: 4%;;
 }
 
 #me-0 {
