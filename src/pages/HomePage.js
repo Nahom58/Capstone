@@ -1,7 +1,10 @@
 import React from 'react'
+import {Link} from "react-router-dom";
+
 import "../stylesheets/navbar.css";
 import "../stylesheets/homepage.css";
 import NavBar from '../components/NavBar';
+
 import FemaleDoctorPicture from '../pictures/Female_Doctor_Img.jpg';
 
 import StarIcon from '../icons/starIcon.png';
@@ -69,7 +72,9 @@ export default function HomePage() {
             />
             <br> 
             </br>
-            <Button variant="success" size = "lg">Search</Button>
+            <Link to={{ pathname: "/ResultsPage" }}>
+              <Button variant="success" size = "lg">Search</Button>
+            </Link>
           </Form>
             </Col>
             <Col sm={3}>

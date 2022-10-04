@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
+import ResultsPage from "./pages/ResultsPage";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route element={<HomePage />}  path="/" />
+        <Route element={<ResultsPage />}  path="/ResultsPage" />
       </Routes>
     </div>
   );
