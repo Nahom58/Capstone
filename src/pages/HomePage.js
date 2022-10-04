@@ -4,12 +4,19 @@ import "../stylesheets/homepage.css";
 import NavBar from '../components/NavBar';
 import FemaleDoctorPicture from '../pictures/Female_Doctor_Img.jpg';
 
+import StarIcon from '../icons/starIcon.png';
+import SearchIcon from '../icons/searchIcon.png';
+import CalendarIcon from '../icons/calenderIcon.png';
+import PersonIcon from '../icons/starIcon.png';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 export default function HomePage() {
   return (
@@ -72,7 +79,51 @@ export default function HomePage() {
               alt = "FemaleDoctor" />
             </Col>
           </Row>
-      </Container>
+          <CardGroup className="cards" >
+            <Card border="success" style={{ margin: '1rem' }} className = "card">
+              <Image variant="top" src={SearchIcon} className="card-img"/>
+              <Card.Body>
+                <Card.Title>Check health complaints</Card.Title>
+                <Card.Text>
+                Check the disease so you can
+                easily choose the right specialist
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card border="success" style={{ margin: '1rem' }} className="card">
+              <Image variant="top" src={PersonIcon} className="card-img"/>
+              <Card.Body>
+                <Card.Title>Choose doctor Specialist</Card.Title>
+                <Card.Text>
+                Choose a specialist according
+                to your disease complaints
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card border="success" style={{ margin: '1rem' }} className="card">
+              <Image variant="top" src={CalendarIcon} className="card-img"/>
+              <Card.Body>
+                <Card.Title>Make a Schedule</Card.Title>
+                <Card.Text>
+                Make a schedule with the doctor 
+                concerned so you can start the
+                examination
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card border="success" style={{ margin: '1rem' }} className="card">
+              <Image variant="top" src={StarIcon} className="card-img" />
+              <Card.Body>
+                <Card.Title>Get your Solutions</Card.Title>
+                <Card.Text>
+                After conducting an examination
+                with a specialist we can help find
+                the right healing method
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Container>
     </div>
   )
 }
