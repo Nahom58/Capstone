@@ -28,6 +28,14 @@
 
   .collapseNavBar {
     flex: space-between !important;
-    padding-right: 5%;
+    padding-right: 10%;
+  }
+
+  .navRightDropdownContainer {
+    align-items: center;
+  }
+
+  #collasible-nav-dropdown {
+    width: 65%;
   }
 

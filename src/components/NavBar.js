@@ -31,8 +31,8 @@ export default function NavBar() {
             <Nav.Link href="#sth">Services</Nav.Link>
             <Nav.Link href="#somothing">Review</Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link href="#home">
+          <Nav className ="navRightDropdownContainer">
+            <Nav.Link href="#profile">
                 <Avatar className="avatar"/>
             </Nav.Link>
             <NavDropdown title="" id="collasible-nav-dropdown">
