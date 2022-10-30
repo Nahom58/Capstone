@@ -1,13 +1,18 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 
+import TuneIcon from '@mui/icons-material/Tune';
+
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 import "../stylesheets/resultspage.css";
 import NavBar from '../components/NavBar';
+import PractitionerCard from '../components/PractitionerCard';
 
 export default function ResultsPage() {
   return (
@@ -48,6 +53,36 @@ export default function ResultsPage() {
           <Button variant="success" size = "lg">Search</Button>
         </Link>
       </Form>
+    </Row>
+    <Row>
+      <Col md = {6} xs = {6}> 
+        <div className = "sortBy">
+          <div className= "sortByLeft">
+            <TuneIcon/> &nbsp;  
+            SORT BY
+          </div>
+          <Dropdown className="sortByDropdown">
+            <Dropdown.Toggle className= "border border-dark" variant="Success" id="dropdown-basic">
+              Availability
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">Availability</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Distance</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+        <div className="practitionerCard">
+          <PractitionerCard/>
+          <PractitionerCard/>
+          <PractitionerCard/>
+          <PractitionerCard/>
+          <PractitionerCard/>
+        </div>
+      </Col>
+      <Col md = {6} xs = {6}> 
+      Location, map 
+      </Col>
     </Row>
     </Container>
   )

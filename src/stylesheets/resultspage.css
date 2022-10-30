@@ -1,4 +1,44 @@
 .search-bar {
     margin: 0 50px 0 50px !important;
-    padding: 0 200px 0 150px !important;
+    padding: 0 150px 0 150px !important;
+}
+
+.sortBy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sortByLeft {
+    display: flex;
+    flex-direction: row;
+    color: #1F9F1F !important;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+.dropdown-toggle {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center;
+    width: 250px;
+}
+
+.dropdown-menu {
+    width: 250px;
+    align-items: center !important;
+}
+
+.practitionerCard {
+    max-height: 450px;
+    overflow: scroll; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    margin-top: 45px !important;
 }

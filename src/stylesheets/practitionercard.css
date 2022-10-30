@@ -1,0 +1,29 @@
+.practitionerDetailsContainer {
+    display: flex;
+    padding: 2%;
+    margin: 2%;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    height: 180px;
+}
+
+.practitionerDetails {
+    padding: 4%;
+    align-items: center;
+    vertical-align: center;
+}
+
+.practitionerPictureWrapper {
+    width: 35%;
+    height: 150px;
+}
+
+.practitionerPicture {
+    border-radius: 10%;
+    width: 100%;
+    height: 150px;;
+}
