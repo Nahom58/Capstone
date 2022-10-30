@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import { GoogleMap, useLoadScript, Marker} from '@react-google-maps/api';
 
 import TuneIcon from '@mui/icons-material/Tune';
 
@@ -15,6 +16,12 @@ import NavBar from '../components/NavBar';
 import PractitionerCard from '../components/PractitionerCard';
 
 export default function ResultsPage() {
+  const { isLoaded } = useLoadScript({ 
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+   });
+
+  if (!isLoaded) return <div> Loading ... </div>
+
   return (
     <Container>
     <Row>
@@ -81,9 +88,22 @@ export default function ResultsPage() {
         </div>
       </Col>
       <Col md = {6} xs = {6}> 
-      Location, map 
+        <Map />
       </Col>
     </Row>
     </Container>
   )
+}
+
+
+function Map() {
+  return (
+  <GoogleMap 
+    zoom={10} 
+    center={{lat: 44, lng: -80}}
+    mapContainerClassName="map-container"
+  >
+    <Marker position={{lat: 44, lng: -80}}/>
+  </GoogleMap>
+  );
 }
