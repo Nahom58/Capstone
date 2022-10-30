@@ -99,7 +99,7 @@ export default function ResultsPage() {
 function Map() {
   return (
   <GoogleMap 
-    zoom={10} 
+    zoom={12} 
     center={{lat: 9.01, lng: 38.76}}
     mapContainerClassName="map-container"
   >
