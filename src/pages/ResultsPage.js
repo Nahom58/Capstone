@@ -65,7 +65,7 @@ export default function ResultsPage() {
       <Col md = {6} xs = {6}> 
         <div className = "sortBy">
           <div className= "sortByLeft">
-            <TuneIcon/> &nbsp;  
+            <TuneIcon color = "primary"/> &nbsp;  
             SORT BY
           </div>
           <Dropdown className="sortByDropdown">
