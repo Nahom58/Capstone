@@ -22,8 +22,21 @@
     width: 30px !important;
   }
 
+  .brandNameFirst {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
   .brandNameLast {
     color: #1F9F1F;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .nav-link {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    color: slategrey !important;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
   }
 
   .collapseNavBar {

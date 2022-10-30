@@ -6,6 +6,7 @@ import Seble from '../pictures/Seble.jpg';
 
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import HomeIcon from '@mui/icons-material/Home';
+import { yellow } from '@mui/material/colors';
 
 import { Image } from 'react-bootstrap';
 
@@ -18,7 +19,7 @@ export default function PractitionerCard() {
         <div className="practitionerDetails">
          <div className="practitionerName"><strong> Seblewongel Birku</strong></div>
          <div className="practitionerRatingLine"> 
-            <StarRateRoundedIcon color="secondary" />&nbsp;
+            <StarRateRoundedIcon sx={{ color: yellow[700] }}/>&nbsp;
             <span>4.8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>General Practitioner</span>
          </div>

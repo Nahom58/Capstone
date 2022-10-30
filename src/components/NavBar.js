@@ -5,6 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+import {Link} from 'react-router-dom';
+
 import { Avatar } from '@material-ui/core';
 
 export default function NavBar() {
@@ -20,13 +22,14 @@ export default function NavBar() {
             className="d-inline-block align-top"
           /> 
           &nbsp;  
-          <span className="brandNameFirst">NRD</span>
-          <span className="brandNameLast">Care</span>
+          <Link to={"/"} style={{ textDecoration: 'none' }}>
+            <span className="brandNameFirst">NRD</span>
+            <span className="brandNameLast">Care</span>
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="collapseNavBar" id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">About Us</Nav.Link>
             <Nav.Link href="#sth">Services</Nav.Link>
             <Nav.Link href="#somothing">Review</Nav.Link>
