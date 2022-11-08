@@ -10,7 +10,7 @@ import FemaleDoctorPicture from '../pictures/Female_Doctor_Img.jpg';
 import StarIcon from '../icons/starIcon.png';
 import SearchIcon from '../icons/searchIcon.png';
 import CalendarIcon from '../icons/calenderIcon.png';
-import PersonIcon from '../icons/starIcon.png';
+import PersonIcon from '../icons/personIcon.png';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
