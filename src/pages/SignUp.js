@@ -5,6 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+import { Link } from 'react-router-dom';
+
 import "../stylesheets/signup.css";
 
 export default function SignUp() {
@@ -17,6 +19,12 @@ export default function SignUp() {
         <Col className="rightColumn" md={6} xs={6}>
         <div className="signUpContainer">
             <Form>
+                <Row className="formTitle mb-4">
+                <span>
+                    <span className="brandNameFirst">NRD</span>
+                    <span className="brandNameLast">Care</span>
+                </span>
+                </Row>
                 <Row className="mb-3">
                     <Col>
                     <Form.Label>First Name</Form.Label>
@@ -73,9 +81,16 @@ export default function SignUp() {
                 <Form.Check type="checkbox" label="I agree with Terms and Conditions" />
                 </Form.Group>
         
-                <Button variant="success" type="submit">
+                <Button variant="success" type="submit" className="mb-2">
                 Sign Up
                 </Button>
+                <div>
+                    <span>Already have an account?</span> &nbsp;&nbsp;
+                    <Link to={{ pathname: "/" }}>
+                    <span>Log in </span>
+                    </Link>
+
+                </div>
             </Form>
         </div>
         </Col>
