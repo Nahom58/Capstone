@@ -13,10 +13,8 @@ export default function SignUp() {
   return (
     <Container fluid>
     <Row style={{height: '713px' }}>
-        <Col className="leftColumn" md={6} xs={6}>
-        Green
-        </Col>
-        <Col className="rightColumn" md={6} xs={6}>
+        <div className="outerColumn">
+        <Col className="innerColumn" md={10} xs={10}>
         <div className="signUpContainer">
             <Form>
                 <Row className="formTitle mb-4">
@@ -46,11 +44,18 @@ export default function SignUp() {
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 </Row>
-        
-                <Form.Group className="mb-3" controlId="formGridAddress1">
-                <Form.Label>Phone Number</Form.Label>
-                <Form.Control placeholder="+251" />
+                
+                <Row className="mb-3">
+                <Form.Group as={Col} controlId="formGridAddress1">
+                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Control placeholder="+251" />
                 </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control type="password" placeholder="Confirm Password" />
+                </Form.Group>
+                </Row>
         
                 <Form.Group className="mb-3" controlId="formGridAddress2">
                 <Form.Label>Address</Form.Label>
@@ -58,22 +63,23 @@ export default function SignUp() {
                 </Form.Group>
         
                 <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control />
+                <Form.Group as={Col} controlId="formGridDateOfBirth">
+                    <Form.Label>Birth Date</Form.Label>
+                    <Form.Control placeholder="Enter Birth Date" />
                 </Form.Group>
         
-                <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>Country</Form.Label>
+                <Form.Group as={Col} controlId="formGridGender">
+                    <Form.Label>Gender</Form.Label>
                     <Form.Select defaultValue="Choose...">
-                    <option>Choose...</option>
-                    <option>...</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Unspecified</option>
                     </Form.Select>
                 </Form.Group>
-        
-                <Form.Group as={Col} controlId="formGridZip">
-                    <Form.Label>Postal Code</Form.Label>
-                    <Form.Control />
+
+                <Form.Group as={Col} controlId="formGridNationality">
+                    <Form.Label>Nationality</Form.Label>
+                    <Form.Control placeholder="Enter Nationality" />
                 </Form.Group>
                 </Row>
         
@@ -94,6 +100,7 @@ export default function SignUp() {
             </Form>
         </div>
         </Col>
+        </div>
     </Row>
     </Container>
   )

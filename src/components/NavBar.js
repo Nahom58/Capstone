@@ -39,11 +39,14 @@ export default function NavBar() {
                 <Avatar className="avatar"/>
             </Nav.Link>
             <NavDropdown title="" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                    Sign Out
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <Link to={"/EditProfile"} style={{ textDecoration: 'none' }}>
+                  <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
+                </Link>
+                <Link to={"/SignUp"} style={{ textDecoration: 'none' }}>
+                  <NavDropdown.Item href="#action/3.2">
+                      Sign Out
+                  </NavDropdown.Item>
+                </Link>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

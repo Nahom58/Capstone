@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from "react-router-dom";
 import "../stylesheets/practitionercard.css";
 
 import Seble from '../pictures/Seble.jpg';
@@ -14,7 +14,9 @@ export default function PractitionerCard() {
   return (
     <div className="practitionerDetailsContainer">
         <div className="practitionerPictureWrapper">
+        <Link to={"/PractitionerDetails/3"} style={{ textDecoration: 'none' }}>
          <Image variant="top" width= "100%" src={Seble} className="practitionerPicture"/>
+        </Link>
         </div>
         <div className="practitionerDetails">
          <div className="practitionerName"><strong> Seblewongel Birku</strong></div>

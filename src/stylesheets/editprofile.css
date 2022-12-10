@@ -1,0 +1,32 @@
+
+.profileContainer {
+    margin-top: 30px;
+}
+
+
+.profileAvatar {
+    height: 150px !important;
+    width: 150px !important;
+}
+
+.profileMessageContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.profileMessage{
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.profileLeftSection{
+    padding-right: 5% !important;
+}
+
+.profileRightSection{
+    padding-left: 5% !important;
+}
