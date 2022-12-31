@@ -1,11 +1,45 @@
 import { Avatar } from '@material-ui/core'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import NavBar from '../components/NavBar'
 
+import { auth, db } from '../firebase';
+import { getDoc, doc } from "firebase/firestore";
+
 import "../stylesheets/editprofile.css";
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function EditProfilePage() {
+    const  [authUser, setAuthUser] = useState(null);
+    const  [userDetails, setUserDetails] = useState(null);
+    const [authUserUid, setAuthUserUid] = useState(null);
+
+    const Gender = {
+        male: 'Male',
+        female: 'Female',
+        unspecified: 'Unspecified'
+      };
+
+    useEffect(() => {
+        const listen = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setAuthUser(user)
+                setAuthUserUid(user.uid)
+
+                const docRef = doc(db, 'users', `${authUserUid}`)
+        
+                getDoc(docRef).then(async (doc) => {
+                    setUserDetails({ ...doc.data(), id: doc.id })
+                })
+            } else {
+                setAuthUser(null);
+            }
+        });
+            return () => {
+                listen();
+            }
+    }, [authUserUid])
+    
   return (
     <div>
         <Row>
@@ -18,7 +52,8 @@ export default function EditProfilePage() {
                 </Col>
                 <Col sm={10} className="profileMessageContainer">
                     <div className="profileName">
-                        Nahom Agize
+                        {userDetails ? <p>{userDetails.firstName} {userDetails.lastName}</p> :
+                        <p>No Current User</p>}
                     </div>
                     <div className="profileMessage">
                         Your account is Ready, You can now update your personal details.
@@ -31,27 +66,26 @@ export default function EditProfilePage() {
                 <Row className="mb-3">
                     <Col>
                     <Form.Label>First Name</Form.Label>
-                    <Form.Control placeholder="Nahom" />
+                    { userDetails? <Form.Control placeholder="-" defaultValue={userDetails.firstName} />:
+                    <Form.Control placeholder="-" />}
                     </Col>
                     <Col>
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control placeholder="Agize" />
+                    { userDetails? <Form.Control placeholder="-" defaultValue={userDetails.lastName} />:
+                    <Form.Control placeholder="-" />}
                     </Col>
                 </Row>
         
                 <Form.Group className="mb-3" controlId="formGridDateOfBirth">
                     <Form.Label>Birth Date</Form.Label>
-                    <Form.Control placeholder="11/11/2000"/>
+                    { userDetails? <Form.Control type="date" placeholder="-" defaultValue={userDetails.dob} />:
+                    <Form.Control placeholder="-" />}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formGridAddress">
                 <Form.Label>Address</Form.Label>
-                <Form.Control placeholder="1234 Main St" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formGridNationality">
-                    <Form.Label>Nationality</Form.Label>
-                    <Form.Control placeholder="Ethiopian"/>
+                { userDetails? <Form.Control placeholder="-" defaultValue={userDetails.address} />:
+                    <Form.Control placeholder="-" />}
                 </Form.Group>
         
                 <Button variant="success" type="submit" className="mb-3">
@@ -64,21 +98,29 @@ export default function EditProfilePage() {
                 
                 <Form.Group className="mb-3" controlId="formGridEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Nahom@uni.minerva.edu" />
+                    { userDetails? <Form.Control type="email" placeholder="-" defaultValue={userDetails.email} />:
+                    <Form.Control placeholder="-" />}
                 </Form.Group>
                 
                 <Form.Group className="mb-3" controlId="formGridPhoneNumber">
                     <Form.Label>Phone Number</Form.Label>
-                    <Form.Control placeholder="+251  923481975" />
+                    { userDetails? <Form.Control placeholder="-" defaultValue={userDetails.phone} />:
+                    <Form.Control placeholder="-" />}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formGridGender">
                     <Form.Label>Gender</Form.Label>
-                    <Form.Select defaultValue="Choose...">
+                    { userDetails? <Form.Select  value={userDetails.gender} name="gender" >
+                    <option value="">Select Gender</option>
+                    {Object.values(Gender).map((enumk) => (
+                        <option key={enumk} value={enumk}>{enumk}</option>
+                      ))}
+                    </Form.Select> : <Form.Select >
+                    <option>Not selected</option>
                     <option>Male</option>
                     <option>Female</option>
                     <option>Unspecified</option>
-                    </Form.Select>
+                    </Form.Select>}
                 </Form.Group>
                 
             </Col>
