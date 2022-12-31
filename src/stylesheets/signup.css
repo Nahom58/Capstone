@@ -36,3 +36,10 @@
     color: #1F9F1F;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
+
+  .authErrorMessage {
+    color: red;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(240, 231, 220);
+  }

@@ -1,0 +1,13 @@
+.rightColumn {
+    justify-content: center;
+    padding: 7% !important;
+    align-items: center;
+    align-self: center;
+    background-color: whitesmoke;
+}
+
+.signInForm {
+    padding-left: 20% !important;
+    padding-right: 20% !important;
+    margin: 10%;
+}
