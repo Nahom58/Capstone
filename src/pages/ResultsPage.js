@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link} from "react-router-dom";
-import { GoogleMap, useLoadScript, Marker} from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+
+import { collection, getDocs, query, where, orderBy, limit, startAfter } from 'firebase/firestore';
+import { db } from '../firebase';
+
 
 import TuneIcon from '@mui/icons-material/Tune';
 
@@ -15,10 +19,47 @@ import "../stylesheets/resultspage.css";
 import NavBar from '../components/NavBar';
 import PractitionerCard from '../components/PractitionerCard';
 
-export default function ResultsPage() {
+export default function ResultsPage(props) {
   const { isLoaded } = useLoadScript({ 
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
    });
+
+  const [ results, setResults ] = useState(null)
+  const [ loading, setLoading ] = useState(true)
+
+  useEffect(() => {
+    const fetchResults = async () => {
+      try{
+        // Get reference
+        const resultsRef = collection(db, 'practitioners')
+
+        // Create a query
+        const q = query(
+          resultsRef, 
+          limit(10))
+        
+        // Execute query
+        const querySnap = await getDocs(q)
+
+        const results = []
+
+        querySnap.forEach((doc) => {
+          return results.push({
+            id: doc.id,
+            data: doc.data()
+          })
+        })
+
+        setResults(results)
+        setLoading(false)
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchResults()
+  }, [])
 
   if (!isLoaded) return <div> Loading ... </div>
 
@@ -79,13 +120,13 @@ export default function ResultsPage() {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <div className="practitionerCard">
-          <PractitionerCard/>
-          <PractitionerCard/>
-          <PractitionerCard/>
-          <PractitionerCard/>
-          <PractitionerCard/>
-        </div>
+        { loading? <div>...loading</div>: results && results.length > 0 ? <div>
+            <ul className="practitionerCard" >
+              {results.map((result) => (
+                <PractitionerCard result={result.data} id={result.id} key={result.id}/>
+              ))}
+            </ul>
+        </div>: <div>No Available Pracitioners</div>}
       </Col>
       <Col md = {6} xs = {6}> 
         <Map />

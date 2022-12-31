@@ -1,15 +1,15 @@
 .practitionerDetailsContainerExtended {
     display: flex;
     padding: 2%;
-    margin: 2%;
+    margin: 3%;
     border: 1px solid whitesmoke;
     border-radius: 15px;
-    box-shadow: 1px 1px 1px 1px lightgrey;
+    box-shadow: 3px 4px 2px 1px lightgrey;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     width: 80%;
-    height: 220px;
+    height: 200px;
 }
 
 .space {

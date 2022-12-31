@@ -10,25 +10,28 @@ import { yellow } from '@mui/material/colors';
 
 import { Image } from 'react-bootstrap';
 
-export default function PractitionerCard() {
+export default function PractitionerCard({result, id}) {
+
   return (
-    <div className="practitionerDetailsContainer">
-        <div className="practitionerPictureWrapper">
-        <Link to={"/PractitionerDetails/3"} style={{ textDecoration: 'none' }}>
-         <Image variant="top" width= "100%" src={Seble} className="practitionerPicture"/>
+    <div className="practitionerDetailsContainer" >
+        <div className="practitionerPictureWrapper" >
+        <Link to={{
+          pathname: `/PractitionerDetails/${id}`,
+        }} style={{ textDecoration: 'none' }}>
+         <Image variant="top" width= "100%" src={result.imageUrl} className="practitionerPicture"/>
         </Link>
         </div>
         <div className="practitionerDetails">
-         <div className="practitionerName"><strong> Seblewongel Birku</strong></div>
+         <div className="practitionerName"><strong> {result.firstName} {result.lastName} </strong></div>
          <div className="practitionerRatingLine"> 
             <StarRateRoundedIcon sx={{ color: yellow[700] }}/>&nbsp;
             <span>4.8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span>General Practitioner</span>
+            <span>{result.practice}</span>
          </div>
          <div className="practitionerAvailability"><b><i>Availability</i>:</b> Monday - Friday</div>
          <div className="practitionerWorkplace">
             <HomeIcon color="success"/>&nbsp;
-            Tikur Anbessa Hospital
+            {result.officeLocation}
          </div>
         </div>
     </div>

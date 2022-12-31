@@ -11,27 +11,27 @@ import { yellow } from '@mui/material/colors';
 import { Button, Image } from 'react-bootstrap';
 import { Rating, Typography } from '@mui/material';
 
-export default function PractitionerCardExtended() {
+export default function PractitionerCardExtended({practitionerDetails}) {
 
     var value;
   return (
     <div className="practitionerDetailsContainerExtended">
         <div className="practitionerPictureWrapperExtended">
-            <Link to={"/PractitionerDetails/3"} style={{ textDecoration: 'none' }}>
-            <Image variant="top" src={Seble} className="practitionerPicture"/>
+            <Link style={{ textDecoration: 'none' }}>
+            <Image variant="top" src={practitionerDetails?.imageUrl} className="practitionerPicture"/>
             </Link>
         </div>
         <div className="practitionerDetailsExtended">
-            <div className="practitionerNameExtended"><strong> Seblewongel Birku</strong></div>
+            <div className="practitionerNameExtended"><strong> {practitionerDetails?.firstName} {practitionerDetails?.lastName}</strong></div>
             <div className="practitionerRatingLineExtended"> 
                 <StarRateRoundedIcon sx={{ color: yellow[700] }}/>&nbsp;
                 <span>4.8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span>General Practitioner</span>
+                <span>{practitionerDetails?.practice}</span>
             </div>
             <div className="practitionerAvailabilityExtended"><b><i>Availability</i>:</b> Monday - Friday</div>
             <div className="practitionerWorkplaceExtended">
                 <HomeIcon color="success"/>&nbsp;
-                Tikur Anbessa Hospital
+                {practitionerDetails?.officeLocation}
             </div>
         </div>
         <div className="space">
@@ -44,7 +44,7 @@ export default function PractitionerCardExtended() {
             </div>
             <div className="practitionerAvailabilityExtended"><b><i>Fees</i>:</b> Birr 80</div>
             <div>
-                <Button variant="secondary" size = "md"><span>Book </span><span>Appointment</span></Button>
+                <Button variant="secondary" size = "md"><span>Book Appointment</span></Button>
             </div>
             </div>
         </div>
