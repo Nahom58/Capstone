@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect , useState } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -8,8 +8,31 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import {Link} from 'react-router-dom';
 
 import { Avatar } from '@material-ui/core';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from '../firebase';
 
 export default function NavBar() {
+  const  [authUser, setAuthUser] = useState(null);
+
+  useEffect(() => {
+      const listen = onAuthStateChanged(auth, (user) => {
+          if (user) {
+              setAuthUser(user)
+          } else {
+              setAuthUser(null);
+          }
+      });
+          return () => {
+              listen();
+          }
+  }, []);
+
+  const userSignOut = () => {
+    signOut(auth).then(() => {
+      console.log('sign out successful')
+    }).catch(error => console.log(error))
+  }
+  
   return (
     <Navbar expand="sm" bg="white" variant="light">
       <Container className="navContainer">
@@ -43,7 +66,7 @@ export default function NavBar() {
                   <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
                 </Link>
                 <Link to={"/SignUp"} style={{ textDecoration: 'none' }}>
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item href="#action/3.2" onClick={userSignOut}>
                       Sign Out
                   </NavDropdown.Item>
                 </Link>
