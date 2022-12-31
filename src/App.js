@@ -5,9 +5,11 @@ import {
 
 import HomePage from "./pages/HomePage";
 import ResultsPage from "./pages/ResultsPage";
-import SignUp from "./pages/SignUp";
+import SignUp from "./components/auth/SignUp";
 import PractitionerDetailsPage from "./pages/PractitionerDetailsPage";
 import EditProfilePage from "./pages/EditProfilePage";
+import SignIn from "./components/auth/SignIn";
+import AuthDetails from "./components/AuthDetails";
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
         <Route element={<HomePage />}  path="/" />
         <Route element={<ResultsPage />}  path="/ResultsPage" />
         <Route element={<SignUp />}  path="/SignUp" />
+        <Route element={<SignIn />}  path="/SignIn" />
+        <Route element={<AuthDetails />}  path="/AuthDetails" />
         <Route element={<EditProfilePage />}  path="/EditProfile" />
         <Route element={<PractitionerDetailsPage />} path="/PractitionerDetails/:id" />
       </Routes>
