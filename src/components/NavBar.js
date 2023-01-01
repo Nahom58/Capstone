@@ -65,7 +65,7 @@ export default function NavBar() {
                 <Link to={"/EditProfile"} style={{ textDecoration: 'none' }}>
                   <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
                 </Link>
-                <Link to={"/SignUp"} style={{ textDecoration: 'none' }}>
+                <Link to={"/"} style={{ textDecoration: 'none' }}>
                   <NavDropdown.Item href="#action/3.2" onClick={userSignOut}>
                       Sign Out
                   </NavDropdown.Item>
