@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from "react-router-dom";
-// import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 import { collection, getDocs, query, where, orderBy, limit, startAfter } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -20,9 +20,9 @@ import NavBar from '../components/NavBar';
 import PractitionerCard from '../components/PractitionerCard';
 
 export default function ResultsPage(props) {
-  // const { isLoaded } = useLoadScript({ 
-  //   googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-  //  });
+  const { isLoaded } = useLoadScript({ 
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+   });
 
   const [ results, setResults ] = useState(null)
   const [ loading, setLoading ] = useState(true)
@@ -61,7 +61,7 @@ export default function ResultsPage(props) {
     fetchResults()
   }, [])
 
-  // if (!isLoaded) return <div> Loading ... </div>
+  if (!isLoaded) return <div> Loading ... </div>
 
   return (
     <Container>
@@ -129,7 +129,7 @@ export default function ResultsPage(props) {
         </div>: <div>No Available Pracitioners</div>}
       </Col>
       <Col md = {6} xs = {6}> 
-        map
+        <Map />
       </Col>
     </Row>
     </Container>
@@ -137,14 +137,14 @@ export default function ResultsPage(props) {
 }
 
 
-// function Map() {
-//   return (
-//   <GoogleMap 
-//     zoom={12} 
-//     center={{lat: 9.01, lng: 38.76}}
-//     mapContainerClassName="map-container"
-//   >
-//     <Marker position={{lat: 9.01, lng: 38.76}}/>
-//   </GoogleMap>
-//   );
-// }
+function Map() {
+  return (
+  <GoogleMap 
+    zoom={12} 
+    center={{lat: 9.01, lng: 38.76}}
+    mapContainerClassName="map-container"
+  >
+    <Marker position={{lat: 9.01, lng: 38.76}}/>
+  </GoogleMap>
+  );
+}
