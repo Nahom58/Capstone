@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from "react-router-dom";
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+// import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 import { collection, getDocs, query, where, orderBy, limit, startAfter } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -137,14 +137,14 @@ export default function ResultsPage(props) {
 }
 
 
-function Map() {
-  return (
-  <GoogleMap 
-    zoom={12} 
-    center={{lat: 9.01, lng: 38.76}}
-    mapContainerClassName="map-container"
-  >
-    <Marker position={{lat: 9.01, lng: 38.76}}/>
-  </GoogleMap>
-  );
-}
+// function Map() {
+//   return (
+//   <GoogleMap 
+//     zoom={12} 
+//     center={{lat: 9.01, lng: 38.76}}
+//     mapContainerClassName="map-container"
+//   >
+//     <Marker position={{lat: 9.01, lng: 38.76}}/>
+//   </GoogleMap>
+//   );
+// }
