@@ -76,7 +76,7 @@ export default function SignUp() {
             console.log(formData)
             await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
-            navigate('/');
+            navigate('/HomePage');
           })
           .catch((error) => {
             // An error occurred. Handle the error here (e.g., show an error message).

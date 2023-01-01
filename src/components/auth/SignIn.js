@@ -25,7 +25,7 @@ export default function SignIn() {
           console.log(error);
         });
       
-      navigate('/');
+      navigate('/HomePage');
     }  
 
   return (
