@@ -26,6 +26,19 @@ import { auth } from '../firebase';
 export default function HomePage() {
   const  [authUser, setAuthUser] = useState(null);
 
+  const SubCity = {
+    1: 'Addis Ketema',
+    2: 'Akaky Kaliti ',
+    3: 'Arada', 
+    4: 'Bole',
+    5: 'Gullele',
+    6: 'Kirkos',
+    7: 'Kolfe Keranio',
+    8: 'Lideta',
+    9: 'Nifas Silk-Lafto',
+    10: 'Yeka'
+  };
+
   useEffect(() => {
       const listen = onAuthStateChanged(auth, (user) => {
           if (user) {
@@ -43,9 +56,9 @@ export default function HomePage() {
         <Row>
           <NavBar />
         </Row>
-        <Container >
-          <Row className="homePageBody">
-            <Col className="homePageBodyLeft" sm={9} style={{backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZk4Xq7g3UbM1JwnPTxpChs46AfQGo_MtSw&usqp=CAU")`, backgroundSize: '410px', backgroundRepeat:"no-repeat", backgroundPosition: "right bottom" }} >
+        <Container className="responsive">
+          <Row className="homePageBody responsive">
+            <Col className="homePageBodyLeft responsive" sm={9} style={{backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZk4Xq7g3UbM1JwnPTxpChs46AfQGo_MtSw&usqp=CAU")`, backgroundSize: '410px', backgroundRepeat:"no-repeat", backgroundPosition: "right bottom" }} >
             <div className="homePageMessage">
             Medical Care Now
             <br> 
@@ -78,14 +91,18 @@ export default function HomePage() {
               aria-label="Search"
               size = "lg"
             />
-            <Form.Control
-              style={{ fontSize: 15, padding: 5 }}
-              type="filter"
-              placeholder="Filter"
+            <Form.Select
+              style={{ fontSize: 15, padding: 10 }}
+              type="select"
               className="me-1"
               aria-label="Filter"
               size = "lg"
-            />
+            >
+            <option value="">Filter by SubCity</option>
+            {Object.values(SubCity).map((item) => (
+              <option key={item} value={item}>{item} SubCity</option>
+            ))}
+            </Form.Select>
             <br> 
             </br>
             <Link to={{ pathname: "/ResultsPage" }}>
@@ -93,7 +110,7 @@ export default function HomePage() {
             </Link>
           </Form>
             </Col>
-            <Col sm={3}>
+            <Col className="responsive" sm={3}>
             <Image 
               width= "100%"
               src = {FemaleDoctorPicture}

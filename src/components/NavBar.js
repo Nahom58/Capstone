@@ -45,7 +45,7 @@ export default function NavBar() {
             className="d-inline-block align-top"
           /> 
           &nbsp;  
-          <Link to={"/"} style={{ textDecoration: 'none' }}>
+          <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
             <span className="brandNameFirst">NRD</span>
             <span className="brandNameLast">Care</span>
           </Link>

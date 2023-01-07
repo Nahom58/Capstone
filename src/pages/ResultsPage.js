@@ -27,6 +27,19 @@ export default function ResultsPage(props) {
   const [ results, setResults ] = useState(null)
   const [ loading, setLoading ] = useState(true)
 
+  const SubCity = {
+    1: 'Addis Ketema',
+    2: 'Akaky Kaliti ',
+    3: 'Arada', 
+    4: 'Bole',
+    5: 'Gullele',
+    6: 'Kirkos',
+    7: 'Kolfe Keranio',
+    8: 'Lideta',
+    9: 'Nifas Silk-Lafto',
+    10: 'Yeka'
+  };
+
   useEffect(() => {
     const fetchResults = async () => {
       try{
@@ -64,11 +77,11 @@ export default function ResultsPage(props) {
   if (!isLoaded) return <div> Loading ... </div>
 
   return (
-    <Container>
-    <Row>
+    <Container className="responsive">
+    <Row className="responsive">
         <NavBar />
     </Row>
-    <Row className="search-bar">
+    <Row className="search-bar responsive">
       <Form className="d-flex">
         <Form.Control
           style={{ fontSize: 15, padding: 5 }}
@@ -87,14 +100,18 @@ export default function ResultsPage(props) {
           aria-label="Search"
           size = "lg"
         />
-        <Form.Control
-          style={{ fontSize: 15, padding: 5 }}
-          type="filter"
-          placeholder="Filter"
-          className="me-1"
-          aria-label="Filter"
-          size = "lg"
-        />
+        <Form.Select
+              style={{ fontSize: 15, padding: 10 }}
+              type="select"
+              className="me-1"
+              aria-label="Filter"
+              size = "lg"
+            >
+            <option value="">Filter by SubCity</option>
+            {Object.values(SubCity).map((item) => (
+              <option key={item} value={item}>{item} SubCity</option>
+            ))}
+            </Form.Select>
         <br> 
         </br>
         <Link to={{ pathname: "/ResultsPage" }}>
@@ -102,8 +119,8 @@ export default function ResultsPage(props) {
         </Link>
       </Form>
     </Row>
-    <Row>
-      <Col md = {6} xs = {6}> 
+    <Row className="responsive">
+      <Col md = {6} xs = {12} className="responsive"> 
         <div className = "sortBy">
           <div className= "sortByLeft">
             <TuneIcon color = "primary"/> &nbsp;  
@@ -128,7 +145,7 @@ export default function ResultsPage(props) {
             </ul>
         </div>: <div>No Available Pracitioners</div>}
       </Col>
-      <Col md = {6} xs = {6}> 
+      <Col md = {6} xs = {12} className="responsive"> 
         <Map />
       </Col>
     </Row>
