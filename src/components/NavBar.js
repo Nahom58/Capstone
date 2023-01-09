@@ -14,6 +14,11 @@ import { auth } from '../firebase';
 export default function NavBar() {
   const  [authUser, setAuthUser] = useState(null);
 
+  const handleClick = () => {
+    const element = document.getElementById('my-element');
+    element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  };
+
   useEffect(() => {
       const listen = onAuthStateChanged(auth, (user) => {
           if (user) {
@@ -39,10 +44,10 @@ export default function NavBar() {
         <Navbar.Brand className="navBarBrand" href="#home">
           <img
             alt=""
-            src=""
+            src="https://i.postimg.cc/hvtkhd6W/icon-512.png"
             width="30"
             height="30"
-            className="d-inline-block align-top"
+            className="d-inline-block align-center"
           /> 
           &nbsp;  
           <Link to={"/homepage"} style={{ textDecoration: 'none' }}>
@@ -53,8 +58,11 @@ export default function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="collapseNavBar" id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#link">About Us</Nav.Link>
-            <Nav.Link href="#sth">Services</Nav.Link>
+            <Nav.Link href="#link">
+            <div>About Us</div></Nav.Link>
+            <Nav.Link onClick={handleClick} href="#sth">
+            Services
+            </Nav.Link>
             <Nav.Link href="#somothing">Review</Nav.Link>
           </Nav>
           <Nav className ="navRightDropdownContainer">
