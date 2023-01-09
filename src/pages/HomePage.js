@@ -58,7 +58,7 @@ export default function HomePage() {
         </Row>
         <Container className="responsive">
           <Row className="homePageBody responsive">
-            <Col className="homePageBodyLeft responsive" sm={9} style={{backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZk4Xq7g3UbM1JwnPTxpChs46AfQGo_MtSw&usqp=CAU")`, backgroundSize: '410px', backgroundRepeat:"no-repeat", backgroundPosition: "right bottom" }} >
+            <Col className="homePageBodyLeft responsive" md={6} lg={9} style={{backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZk4Xq7g3UbM1JwnPTxpChs46AfQGo_MtSw&usqp=CAU")`, backgroundSize: '42%', backgroundRepeat:"no-repeat", backgroundPosition: "right bottom" }} >
             <div className="homePageMessage">
             Medical Care Now
             <br> 
@@ -110,14 +110,16 @@ export default function HomePage() {
             </Link>
           </Form>
             </Col>
-            <Col className="responsive" sm={3}>
+            <Col className="responsive" md={6} lg={3}>
             <Image 
               width= "100%"
               src = {FemaleDoctorPicture}
               alt = "FemaleDoctor" />
             </Col>
           </Row>
-          <CardGroup className="cards" >
+          <Row>
+          <CardGroup id="my-element"  >
+            <Col sm={12} md={6} lg={3} className="cards">
             <Card border="success" style={{ margin: '1rem' }} className = "card">
               <Image variant="top" src={SearchIcon} className="card-img"/>
               <Card.Body>
@@ -128,6 +130,8 @@ export default function HomePage() {
                 </Card.Text>
               </Card.Body>
             </Card>
+            </Col>
+            <Col sm={12} md={6}lg={3} className="cards">
             <Card border="success" style={{ margin: '1rem' }} className="card">
               <Image variant="top" src={PersonIcon} className="card-img"/>
               <Card.Body>
@@ -138,6 +142,8 @@ export default function HomePage() {
                 </Card.Text>
               </Card.Body>
             </Card>
+            </Col>
+            <Col sm={12} md={6} lg={3} className="cards">
             <Card border="success" style={{ margin: '1rem' }} className="card">
               <Image variant="top" src={CalendarIcon} className="card-img"/>
               <Card.Body>
@@ -149,6 +155,8 @@ export default function HomePage() {
                 </Card.Text>
               </Card.Body>
             </Card>
+            </Col>
+            <Col sm={12} md={6} lg={3} className="cards">
             <Card border="success" style={{ margin: '1rem' }} className="card">
               <Image variant="top" src={StarIcon} className="card-img" />
               <Card.Body>
@@ -160,7 +168,14 @@ export default function HomePage() {
                 </Card.Text>
               </Card.Body>
             </Card>
+            </Col>
           </CardGroup>
+          </Row>
+          <hr class="featurette-divider"></hr>
+          <footer class="footer">
+            <p class="float-end"><a href="#"><button>Back to top</button></a></p>
+            <p>&copy; 2023 NRDCare, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+          </footer>
         </Container>
     </div>
   )
