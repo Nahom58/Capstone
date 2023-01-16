@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Form, Button, Container, Col, Row } from 'react-bootstrap';
+import { Form, Button, Container, Col, Row} from 'react-bootstrap';
+import {Box } from '@material-ui/core'
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -38,10 +39,27 @@ export default function SignIn() {
     }  
 
   return (
-    <Container fluid>
-    <Row style={{height: '713px' }}>
+    <Container fluid className="signInContainer">
+    <Box
+    className="signInBox"
+    sx={{
+      width: '65%',
+      height: '100%',
+      backgroundColor: 'primary.dark',
+      '&:hover': {
+        backgroundColor: 'primary.main',
+        opacity: [0.9, 0.8, 0.7],
+      },
+    }}
+    >
+    <Row className="signInRow" style={{height: '713px' }}>
     <Col className="rightColumn">
     <Form className="signInForm" onSubmit={handleSubmit}>
+    <span className="signInTitle">
+      <span>Log into </span>&nbsp;
+      <span className="brandNameFirst">NRD</span>
+      <span className="brandNameLast">Care</span>
+    </span>
       <div className="authErrorMessage mb-1">{error}</div>
       <Form.Group controlId="formBasicEmail"  className="mb-3 mt-3">
         <Form.Label>Email address</Form.Label>
@@ -51,12 +69,15 @@ export default function SignIn() {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
       </Form.Group>
+      <div className="logInButton">
       <Button variant="success" type="submit" className="mb-2">
-            Log In
-        </Button>
+          Log In
+      </Button>
+      </div>
     </Form>
     </Col>
     </Row>
+    </Box>
     </Container>
   )
 }

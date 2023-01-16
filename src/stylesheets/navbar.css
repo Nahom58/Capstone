@@ -20,8 +20,8 @@
   }
 
   .avatar {
-    height: 30px !important;
-    width: 30px !important;
+    height: 35px !important;
+    width: 35px !important;
   }
 
   .brandNameFirst {
@@ -47,6 +47,8 @@
   }
 
   .navRightDropdownContainer {
+    display: flex !important;
+    flex-direction: row !important;
     align-items: center;
   }
 

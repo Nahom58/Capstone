@@ -1,13 +1,13 @@
 .practitionerDetailsContainer {
     display: flex;
-    padding: 2% !important;
+    padding: 5% !important;
     margin: 2%;
     border: 1px solid whitesmoke;
     border-radius: 15px;
     box-shadow: 1px 1px 1px 1px lightgrey;
     flex-direction: row;
     justify-content: space-around;
-    width: 80%;
+    width: 92%;
     height: 100%;
 }
 

@@ -112,6 +112,7 @@ export default function HomePage() {
             </Col>
             <Col className="responsive" md={6} lg={3}>
             <Image 
+              height= "100%"
               width= "100%"
               src = {FemaleDoctorPicture}
               alt = "FemaleDoctor" />

@@ -120,7 +120,7 @@ export default function ResultsPage(props) {
       </Form>
     </Row>
     <Row className="responsive">
-      <Col md = {6} xs = {12} className="responsive"> 
+      <Col md = {6} xs = {12} className="responsive leftColumn"> 
         <div className = "sortBy">
           <div className= "sortByLeft">
             <TuneIcon color = "primary"/> &nbsp;  
