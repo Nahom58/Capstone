@@ -172,11 +172,11 @@ export default function HomePage() {
             </Col>
           </CardGroup>
           </Row>
-          <hr class="featurette-divider"></hr>
+          {/*<hr class="featurette-divider"></hr>
           <footer class="footer">
             <p class="float-end"><a href="#"><button>Back to top</button></a></p>
             <p>&copy; 2023 NRDCare, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-          </footer>
+            </footer>*/}
         </Container>
     </div>
   )

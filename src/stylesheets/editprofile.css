@@ -3,6 +3,10 @@
     margin-top: 30px;
 }
 
+.profilePicture {
+    display: flex;
+    align-items: flex-end;
+}
 
 .profileAvatar {
     height: 150px !important;

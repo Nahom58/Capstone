@@ -52,7 +52,7 @@ export default function SignIn() {
       },
     }}
     >
-    <Row className="signInRow" style={{height: '713px' }}>
+    <Row className="signInRow" style={{height: '100vh' }}>
     <Col className="rightColumn">
     <Form className="signInForm" onSubmit={handleSubmit}>
     <span className="signInTitle">

@@ -22,7 +22,7 @@ export default function PractitionerCardExtended({practitionerDetails}) {
             </Link>
         </div>
         <div className="practitionerDetailsExtended">
-            <div className="practitionerNameExtended"><strong> {practitionerDetails?.firstName} {practitionerDetails?.lastName}</strong></div>
+            <div className="practitionerNameExtended"><strong> Dr. {practitionerDetails?.firstName} {practitionerDetails?.lastName}</strong></div>
             <div className="practitionerRatingLineExtended"> 
                 <StarRateRoundedIcon sx={{ color: yellow[700] }}/>&nbsp;
                 <span>4.8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

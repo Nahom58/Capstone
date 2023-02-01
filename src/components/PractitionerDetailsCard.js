@@ -10,8 +10,8 @@ export default function PractitionerDetailsCard({practitionerDetails}) {
         <Row>
             <Col md={6} sm={6} className="bottomLeftDetails">
             <div>
-            <h5>About {practitionerDetails?.firstName}</h5>
-            <p>  {practitionerDetails?.firstName} is working as a midwife in Betezatha hospital. He has 5 years of experience and earned his 
+            <h5>About Dr. {practitionerDetails?.firstName}</h5>
+            <p> Dr. {practitionerDetails?.firstName} is working as a midwife in Betezatha hospital. He has 5 years of experience and earned his 
             degree from Gondar University.</p>
             
             </div>

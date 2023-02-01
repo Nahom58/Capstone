@@ -93,18 +93,18 @@ export default function SignUp() {
 
   return (
     <Container fluid>
-    <Row style={{height: '713px' }}>
+    <Row style={{height: '100vh' }}>
         <div className="outerColumn">
         <Col className="innerColumn" md={10} xs={10}>
         <div className="signUpContainer">
-            <Form onSubmit={handleSubmit} >
-                <Row className="formTitle mb-4">
+            <Form onSubmit={handleSubmit} className="formContainer">
+                <Row className="formTitle mb-2">
                 <span>
                     <span className="brandNameFirst">NRD</span>
                     <span className="brandNameLast">Care</span>
                 </span>
                 </Row>
-                <Row className="mb-3">
+                <Row className="mb-2">
                     <div className="authErrorMessage mb-1">{error}</div>
                     <Col>
                     <Form.Label>First Name</Form.Label>
@@ -115,7 +115,7 @@ export default function SignUp() {
                     <Form.Control placeholder="Enter Last name" name="lastName" value={lastName} onChange={handleChange}/>
                     </Col>
                 </Row>
-                <Row className="mb-3">
+                <Row className="mb-2">
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" name="email" value={email} onChange={handleChange}/>
@@ -127,7 +127,7 @@ export default function SignUp() {
                 </Form.Group>
                 </Row>
                 
-                <Row className="mb-3">
+                <Row className="mb-2">
                 <Form.Group as={Col} controlId="formGridAddress1">
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control placeholder="+251" value={phone} name="phone" onChange={handleChange}/>
@@ -139,7 +139,7 @@ export default function SignUp() {
                 </Form.Group>
                 </Row>
         
-                <Form.Group className="mb-3" controlId="formGridAddress2">
+                <Form.Group className="mb-2" controlId="formGridAddress2">
                 <Form.Label>Address</Form.Label>
                 <Form.Control placeholder="1234 Main St" value={address} name="address" onChange={handleChange}/>
                 </Form.Group>
@@ -167,7 +167,8 @@ export default function SignUp() {
                 <Form.Check type="checkbox" label="I agree with Terms and Conditions" />
                 </Form.Group>
         
-                <Button variant="success" type="submit" className="mb-2">
+                <div className="signUpButton">
+                <Button variant="success" type="submit" className="mb-3">
                 Sign Up
                 </Button>
                 <div>
@@ -175,7 +176,7 @@ export default function SignUp() {
                     <Link to={{ pathname: "/SignIn" }}>
                     <span>Log in </span>
                     </Link>
-
+                </div>
                 </div>
             </Form>
         </div>

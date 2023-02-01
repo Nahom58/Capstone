@@ -1,22 +1,34 @@
 .outerColumn {
-    background-color: #1F9F54;
+    background-color: #67bb67;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 
 .innerColumn {
+    display: flex;
     justify-content: center;
-    background-color: whitesmoke;
+    align-items: center;
+    background-color: #67bb67;
     padding: 50px 0 50px 0;
+    margin: 20px 0 20px 0;
+    height: 100%;
 }
 
 .signUpContainer {
     display: flex;
-    height: 100%;
-    width: 100%;
+    background-color: whitesmoke;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    padding: 15%;
+
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: 8px 8px 18px rgba(0, 0.759, 0, 0.759);
+    border-image-source: linear-gradient(to right, #cfbbbb, #a1eba3);
+    border-image-slice: 2;
 }
 
 .formTitle {
@@ -43,3 +55,7 @@
     justify-content: center;
     background-color: rgb(240, 231, 220);
   }
+
+  .signUpButton {
+    text-align: center;
+}

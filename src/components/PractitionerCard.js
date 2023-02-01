@@ -22,7 +22,7 @@ export default function PractitionerCard({result, id}) {
         </Link>
         </div>
         <div className="practitionerDetails">
-         <div className="practitionerName"><strong> {result.firstName} {result.lastName} </strong></div>
+         <div className="practitionerName"><strong> Dr. {result.firstName} {result.lastName} </strong></div>
          <div className="practitionerRatingLine"> 
             <StarRateRoundedIcon sx={{ color: yellow[700] }}/>&nbsp;
             <span>4.8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

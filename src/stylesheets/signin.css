@@ -1,5 +1,5 @@
 .signInContainer {
-    background-color: #f3f3f3;
+    background: linear-gradient(to right, #e3f6e3, #58a958);
     height: 100% !important;
 }
 
@@ -17,7 +17,8 @@
 
 .rightColumn {
     justify-content: center;
-    padding: 7% !important;
+    padding: 3% !important;
+    margin: 5% !important;
     align-items: center;
     align-self: center;
     background-color: whitesmoke;
