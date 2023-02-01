@@ -10,21 +10,14 @@ export default function PractitionerDetailsCard({practitionerDetails}) {
         <Row>
             <Col md={6} sm={6} className="bottomLeftDetails">
             <div>
-            {practitionerDetails}?<h5>About Dr. {practitionerDetails.firstName}</h5>: <h5>About Dr. {`First Name`}</h5>
-            {practitionerDetails}?
-            <p> 
-            Dr. {practitionerDetails.firstName} is working as a midwife in Betezatha hospital. He has 5 years of experience and earned his 
-            degree from Gondar University.
-            </p>: 
-            <p> 
-            Dr. {`FirstName`} is working as a midwife in Betezatha hospital. He has 5 years of experience and earned his 
-            degree from Gondar University.
-            </p>
+            <h5>About Dr. {practitionerDetails?.firstName}</h5>
+            <p> Dr. {practitionerDetails?.firstName} is working as a midwife in Betezatha hospital. He has 5 years of experience and earned his 
+            degree from Gondar University.</p>
             
             </div>
             <div>
             <h5>Education</h5>
-            {practitionerDetails}?<p>{practitionerDetails.education}</p>: <p>{`education`}</p>
+            <p>{practitionerDetails?.education}</p>
             </div>
             <div>
             <h5>Years of Experience</h5>
@@ -35,7 +28,7 @@ export default function PractitionerDetailsCard({practitionerDetails}) {
             <Col md={6} sm={6} className="bottomRightDetails">
             <div>
             <h5>Specialty</h5>
-            {practitionerDetails}?<p>{practitionerDetails.practice}</p>: <p>{`practice`}</p>
+            <p>{practitionerDetails?.practice}</p>
             </div>
             <div>
             <h5>Availability</h5>
