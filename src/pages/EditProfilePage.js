@@ -31,9 +31,9 @@ export default function EditProfilePage() {
         }
     }
 
-    function handleClick() {
-        upload(photo, userDetails, setLoading );
-    }
+    // function handleClick() {
+    //     upload(photo, userDetails, setLoading );
+    // }
 
     {/*useEffect(() => {
         if (userDetails?.photoUrl) {
@@ -53,9 +53,6 @@ export default function EditProfilePage() {
                     setUserDetails({ ...doc.data(), id: doc.id })
                 })
 
-                if (authUser?.photoURL) {
-                    setPhotoURL(authUser.photoURL)
-                }
             } else {
                 setAuthUser(null);
             }
@@ -74,7 +71,7 @@ export default function EditProfilePage() {
             <Row className="mb-5">
                 <Col sm={2} className="profilePicture">
                     <Avatar src={photoURL} className="profileAvatar"/>
-                    <IconButton disabled={loading} color="success" aria-label="upload picture" component="label" className="profileUpload" onClick={handleClick}>
+                    <IconButton disabled={loading} color="success" aria-label="upload picture" component="label" className="profileUpload">
                         <input hidden accept="image/*" type="file" onChange={handleChange} />
                         <PhotoCamera />
                     </IconButton>

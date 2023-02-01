@@ -57,11 +57,11 @@ getDoc(docRef).then((doc) => {
 })
 
 // Storage
-export async function upload(file, currentUser, setLoading) {
-  const fileRef = ref(storage, currentUser.uid + '.png');
+// export async function upload(file, currentUser, setLoading) {
+//   const fileRef = ref(storage, currentUser.uid + '.png');
 
-  setLoading(true);
-  const snapshot = await uploadBytes(fileRef, file);
-  setLoading(false);
-  alert("Uploaded file!");
-}
+//   setLoading(true);
+//   const snapshot = await uploadBytes(fileRef, file);
+//   setLoading(false);
+//   alert("Uploaded file!");
+// }

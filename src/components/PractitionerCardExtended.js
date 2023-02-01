@@ -18,20 +18,35 @@ export default function PractitionerCardExtended({practitionerDetails}) {
     <div className="practitionerDetailsContainerExtended">
         <div className="practitionerPictureWrapperExtended">
             <Link style={{ textDecoration: 'none' }}>
-            <Image variant="top" src={practitionerDetails?.imageUrl} className="practitionerPicture"/>
+            {practitionerDetails}?<Image variant="top" src={practitionerDetails.imageUrl} className="practitionerPicture"/>:
+            <Image variant="top" src={""} className="practitionerPicture"/>
             </Link>
         </div>
+        {practitionerDetails}?
         <div className="practitionerDetailsExtended">
-            <div className="practitionerNameExtended"><strong> Dr. {practitionerDetails?.firstName} {practitionerDetails?.lastName}</strong></div>
+            <div className="practitionerNameExtended"><strong> Dr. {practitionerDetails.firstName} {practitionerDetails.lastName}</strong></div>
             <div className="practitionerRatingLineExtended"> 
                 <StarRateRoundedIcon sx={{ color: yellow[700] }}/>&nbsp;
                 <span>4.8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span>{practitionerDetails?.practice}</span>
+                <span>{practitionerDetails.practice}</span>
             </div>
             <div className="practitionerAvailabilityExtended"><b><i>Availability</i>:</b> Monday - Friday</div>
             <div className="practitionerWorkplaceExtended">
                 <HomeIcon color="success"/>&nbsp;
-                {practitionerDetails?.officeLocation}
+                {practitionerDetails.officeLocation}
+            </div>
+        </div>:
+        <div className="practitionerDetailsExtended">
+            <div className="practitionerNameExtended"><strong> Dr. {`firstName`} {`lastName`}</strong></div>
+            <div className="practitionerRatingLineExtended"> 
+                <StarRateRoundedIcon sx={{ color: yellow[700] }}/>&nbsp;
+                <span>4.8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span>{`practice`}</span>
+            </div>
+            <div className="practitionerAvailabilityExtended"><b><i>Availability</i>:</b> Monday - Friday</div>
+            <div className="practitionerWorkplaceExtended">
+                <HomeIcon color="success"/>&nbsp;
+                {`officeLocation`}
             </div>
         </div>
         <div className="space">
