@@ -1,45 +1,24 @@
-import { Avatar, IconButton } from '@material-ui/core'
+import { Avatar } from '@material-ui/core'
 import React, { useState, useEffect } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import NavBar from '../components/NavBar'
 
-import { auth, db, upload } from '../firebase';
+import { auth, db } from '../firebase';
 import { getDoc, doc } from "firebase/firestore";
 
 import "../stylesheets/editprofile.css";
 import { onAuthStateChanged } from 'firebase/auth';
-import { PhotoCamera } from '@mui/icons-material';
 
 export default function EditProfilePage() {
-    const [authUser, setAuthUser] = useState(null);
-    const [userDetails, setUserDetails] = useState(null);
+    const  [authUser, setAuthUser] = useState(null);
+    const  [userDetails, setUserDetails] = useState(null);
     const [authUserUid, setAuthUserUid] = useState(null);
-
-    const [photo, setPhoto] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [photoURL, setPhotoURL] = useState('');
 
     const Gender = {
         male: 'Male',
         female: 'Female',
         unspecified: 'Unspecified'
       };
-
-    function handleChange(e) {
-        if(e.target.files[0]) {
-            setPhoto(e.target.files[0])
-        }
-    }
-
-    function handleClick() {
-        upload(photo, userDetails, setLoading );
-    }
-
-    {/*useEffect(() => {
-        if (userDetails?.photoUrl) {
-            setPhotoURL(userDetails.photoURL)
-        }
-    }, [userDetails])*/}
 
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
@@ -52,10 +31,6 @@ export default function EditProfilePage() {
                 getDoc(docRef).then(async (doc) => {
                     setUserDetails({ ...doc.data(), id: doc.id })
                 })
-
-                if (authUser?.photoURL) {
-                    setPhotoURL(authUser.photoURL)
-                }
             } else {
                 setAuthUser(null);
             }
@@ -63,7 +38,7 @@ export default function EditProfilePage() {
             return () => {
                 listen();
             }
-    }, [authUserUid, userDetails])
+    }, [authUserUid])
     
   return (
     <div>
@@ -72,12 +47,8 @@ export default function EditProfilePage() {
         </Row>
         <Container className="profileContainer">
             <Row className="mb-5">
-                <Col sm={2} className="profilePicture">
-                    <Avatar src={photoURL} className="profileAvatar"/>
-                    <IconButton disabled={loading} color="success" aria-label="upload picture" component="label" className="profileUpload" onClick={handleClick}>
-                        <input hidden accept="image/*" type="file" onChange={handleChange} />
-                        <PhotoCamera />
-                    </IconButton>
+                <Col sm={2}>
+                    <Avatar className="profileAvatar"/>
                 </Col>
                 <Col sm={10} className="profileMessageContainer">
                     <div className="profileName">

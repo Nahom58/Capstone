@@ -6,8 +6,6 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getFirestore, collection, getDocs, getDoc, doc } from "firebase/firestore";
 
-import {getStorage, ref, uploadBytes} from "firebase/storage";
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -28,8 +26,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const storage = getStorage(app);
-
 // collection ref
 const colRef = collection(db, 'users')
 
@@ -47,7 +43,7 @@ getDocs(colRef).then(
     console.log(error.message)
   })
 
-export { auth, app, db, storage };
+export { auth, app, db };
 
 //get a single document
 const docRef = doc(db, 'users', 'socNV5QrmFN3UgJCKScy')
@@ -55,13 +51,3 @@ const docRef = doc(db, 'users', 'socNV5QrmFN3UgJCKScy')
 getDoc(docRef).then((doc) => {
   console.log(doc.data(), doc.id)
 })
-
-// Storage
-export async function upload(file, currentUser, setLoading) {
-  const fileRef = ref(storage, currentUser.uid + '.png');
-
-  setLoading(true);
-  const snapshot = await uploadBytes(fileRef, file);
-  setLoading(false);
-  alert("Uploaded file!");
-}
