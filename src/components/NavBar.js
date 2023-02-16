@@ -41,7 +41,7 @@ export default function NavBar() {
   return (
     <Navbar expand="sm" bg="white" variant="light">
       <Container className="navContainer">
-        <Navbar.Brand className="navBarBrand" href="#home">
+        <Navbar.Brand className="navBarBrand">
           <img
             alt=""
             src="https://i.postimg.cc/hvtkhd6W/icon-512.png"
@@ -66,8 +66,10 @@ export default function NavBar() {
             <Nav.Link href="#somothing">Review</Nav.Link>
           </Nav>
           <Nav className ="navRightDropdownContainer">
-            <Nav.Link href="#profile">
+            <Nav.Link>
+              <Link to={"/ViewProfile"}>
                 <Avatar className="avatar"/>
+              </Link>
             </Nav.Link>
             <NavDropdown title="" id="collasible-nav-dropdown">
                 <Link to={"/EditProfile"} style={{ textDecoration: 'none' }}>
