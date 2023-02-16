@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import {Link} from "react-router-dom";
+import {useLocation, Link} from "react-router-dom";
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
-import { collection, getDocs, query, where, orderBy, limit, startAfter } from 'firebase/firestore';
+import { collection, getDocs, query, where, limit } from 'firebase/firestore';
 import { db } from '../firebase';
 
 
@@ -24,8 +24,12 @@ export default function ResultsPage(props) {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
    });
 
-  const [ results, setResults ] = useState(null)
+  const [ results, setResults ] = useState([])
   const [ loading, setLoading ] = useState(true)
+
+  const location = useLocation();
+  console.log('print location state', location.state);
+  const { nameSearchTerm } = location.state;
 
   const SubCity = {
     1: 'Addis Ketema',
@@ -46,17 +50,45 @@ export default function ResultsPage(props) {
         // Get reference
         const resultsRef = collection(db, 'practitioners')
 
-        // Create a query
-        const q = query(
-          resultsRef, 
+        //Create a query when the user searches without a name
+        const q1 = query(
+          resultsRef,
           limit(10))
-        
+
+        // Create a query when the user searches with a first name
+        const q2 = query(
+          resultsRef,   
+          where('firstName','==', nameSearchTerm),
+          limit(10))
+
+        // Create a query when the user searches with a last name
+        const q3 = query(
+          resultsRef,   
+          where('lastName','==', nameSearchTerm),
+          limit(10))
+
         // Execute query
-        const querySnap = await getDocs(q)
+        let querySnapFirstName
+        let querySnapLastName
+        if (nameSearchTerm === '') {
+          querySnapFirstName = await getDocs(q1)
+        } else {  
+          querySnapFirstName = await getDocs(q2) 
+        }
+          
+        querySnapLastName = await getDocs(q3) 
+      
 
         const results = []
 
-        querySnap.forEach((doc) => {
+        querySnapFirstName.forEach((doc) => {
+          return results.push({
+            id: doc.id,
+            data: doc.data()
+          })
+        })
+
+        querySnapLastName.forEach((doc) => {
           return results.push({
             id: doc.id,
             data: doc.data()
@@ -72,7 +104,7 @@ export default function ResultsPage(props) {
     }
 
     fetchResults()
-  }, [])
+  }, [nameSearchTerm])
 
   if (!isLoaded) return <div> Loading ... </div>
 
@@ -86,7 +118,7 @@ export default function ResultsPage(props) {
         <Form.Control
           style={{ fontSize: 15, padding: 5 }}
           type="search"
-          placeholder="Search By Name"
+          placeholder="Search By First or Last Name"
           className="me-0"
           id = "me-0"
           aria-label="Search"

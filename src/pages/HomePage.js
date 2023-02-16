@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 import "../stylesheets/navbar.css";
 import "../stylesheets/homepage.css";
@@ -24,7 +24,12 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase';
 
 export default function HomePage() {
-  const  [authUser, setAuthUser] = useState(null);
+  const [authUser, setAuthUser] = useState(null);
+  const [nameSearchTerm, setNameSearchTerm] = useState('');
+  const [results, setResults] = useState([]);
+  const location = useLocation();
+
+  const navigate = useNavigate();
 
   const SubCity = {
     1: 'Addis Ketema',
@@ -51,6 +56,16 @@ export default function HomePage() {
               listen();
           }
   }, [])
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setResults([]);
+    location.state = { nameSearchTerm };
+    location.pathname = '/ResultsPage';
+    console.log('nameSearchTerm', location.state);
+    navigate('/ResultsPage', { state: { nameSearchTerm } });
+  };
+
   return (
     <div className="flex" >
         <Row>
@@ -73,15 +88,16 @@ export default function HomePage() {
             to ease access to healthcare.
             </div>
             <Button variant="outline-success" size='lg'>Contact Us</Button>{' '}
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={handleSearch}>
             <Form.Control
               style={{ fontSize: 15, padding: 5 }}
               type="search"
-              placeholder="Search By Name"
+              placeholder="Search By First or Last Name"
               className="me-0"
               id = "me-0"
               aria-label="Search"
               size = "lg"
+              onChange={(event) => setNameSearchTerm(event.target.value)}
             />
             <Form.Control
               style={{ fontSize: 15, padding: 10 }}
@@ -105,9 +121,9 @@ export default function HomePage() {
             </Form.Select>
             <br> 
             </br>
-            <Link to={{ pathname: "/ResultsPage" }}>
-              <Button variant="success" size = "lg">Search</Button>
-            </Link>
+            
+            <Button variant="success" size = "lg" type="submit"> Search </Button>
+            
           </Form>
             </Col>
             <Col className="responsive" md={6} lg={3}>
@@ -174,8 +190,8 @@ export default function HomePage() {
           </Row>
           <hr class="featurette-divider"></hr>
           <footer class="footer">
-            <p class="float-end"><a href="#"><button>Back to top</button></a></p>
-            <p>&copy; 2023 NRDCare, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            <p class="float-end"><button>Back to top</button></p>
+            <p>&copy; 2023 NRDCare, Inc. &middot; Privacy &middot; Terms</p>
           </footer>
         </Container>
     </div>
