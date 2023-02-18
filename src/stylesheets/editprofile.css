@@ -34,3 +34,12 @@
 .profileRightSection{
     padding-left: 5% !important;
 }
+
+.updateProfileButtonContainer{
+    text-align: center;
+}
+
+.updateProfileButton{
+    margin-top: 20px;
+    padding: 8px 35px 8px 35px !important;
+}
