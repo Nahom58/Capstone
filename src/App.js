@@ -11,6 +11,7 @@ import EditProfilePage from "./pages/EditProfilePage";
 import SignIn from "./components/auth/SignIn";
 import AuthDetails from "./components/AuthDetails";
 import ViewProfilePage from "./pages/ViewProfilePage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route element={<AuthDetails />}  path="/AuthDetails" />
         <Route element={<EditProfilePage />}  path="/EditProfile" />
         <Route element={<ViewProfilePage />}  path="/ViewProfile" />
+        <Route element={<ContactUsPage />}  path="/ContactUs" />
         <Route element={<PractitionerDetailsPage />} path="/PractitionerDetails/:id" />
       </Routes>
     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, Link} from "react-router-dom";
 
 import "../stylesheets/navbar.css";
 import "../stylesheets/homepage.css";
@@ -87,7 +87,9 @@ export default function HomePage() {
             individuals with medical practitioners from various fields in the medical industry
             to ease access to healthcare.
             </div>
-            <Button variant="outline-success" size='lg'>Contact Us</Button>{' '}
+            <Link to={{ pathname: "/ContactUs" }}>
+              <Button variant="outline-success" size='lg'>Contact Us</Button>{' '}
+            </Link>
           <Form className="d-flex" onSubmit={handleSearch}>
             <Form.Control
               style={{ fontSize: 15, padding: 5 }}
